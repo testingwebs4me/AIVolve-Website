@@ -659,6 +659,8 @@ nav.scrolled {
 
 .service-icon {
   font-size: 40px;
+  width: 40px;
+  height: 40px;
   margin-bottom: 20px;
   animation: icon-bounce 2s infinite;
   animation-delay: var(--delay);
