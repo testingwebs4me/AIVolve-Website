@@ -305,6 +305,7 @@ nav.scrolled {
   }
 }
 
+/* Base floating shapes container */
 .floating-shapes {
   position: absolute;
   width: 100%;
@@ -312,6 +313,7 @@ nav.scrolled {
   overflow: hidden;
   top: 0;
   left: 0;
+  pointer-events: none; /* prevent blocking clicks */
 }
 
 .shape {
@@ -320,6 +322,7 @@ nav.scrolled {
   filter: blur(1px);
 }
 
+/* Main section big triangles */
 .shape1 {
   width: 0;
   height: 0;
@@ -343,6 +346,51 @@ nav.scrolled {
     fade-in-out 5s infinite;
 }
 
+/* About section small circles */
+.about-shape1 {
+  width: 50px;
+  height: 50px;
+  background: #aeb938;
+  border-radius: 50%;
+  top: 15%;
+  left: 15%;
+  animation: float-shape 12s infinite ease-in-out, fade-in-out 6s infinite;
+}
+
+.about-shape2 {
+  width: 60px;
+  height: 60px;
+  background: #0a5b5d;
+  border-radius: 50%;
+  top: 70%;
+  right: 15%;
+  animation: float-shape 18s infinite ease-in-out reverse,
+    fade-in-out 8s infinite;
+}
+
+/* Services section diamonds */
+.services-shape1 {
+  width: 65px;
+  height: 65px;
+  background: #aeb938;
+  transform: rotate(45deg);
+  top: 25%;
+  left: 10%;
+  animation: float-shape 10s infinite ease-in-out, fade-in-out 5s infinite;
+}
+
+.services-shape2 {
+  width: 45px;
+  height: 45px;
+  background: #0a5b5d;
+  transform: rotate(45deg);
+  top: 80%;
+  right: 10%;
+  animation: float-shape 14s infinite ease-in-out reverse,
+    fade-in-out 7s infinite;
+}
+
+/* Animation keyframes */
 @keyframes float-shape {
   0%,
   100% {
@@ -353,6 +401,16 @@ nav.scrolled {
   }
   66% {
     transform: translate(-20px, 20px) rotate(240deg) scale(0.9);
+  }
+}
+
+@keyframes fade-in-out {
+  0%,
+  100% {
+    opacity: 0.15;
+  }
+  50% {
+    opacity: 0.4;
   }
 }
 
