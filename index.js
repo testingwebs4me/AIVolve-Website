@@ -112,24 +112,41 @@ document
   .querySelector(".contact-form")
   .addEventListener("submit", function (e) {
     e.preventDefault();
-    const button = this.querySelector(".btn");
+    const form = this;
+    const button = form.querySelector(".btn");
     const originalText = button.textContent;
 
     button.textContent = "Sending...";
     button.style.opacity = "0.7";
 
-    setTimeout(() => {
-      button.textContent = "✓ Sent!";
-      button.style.background = "#4CAF50";
+    fetch(form.action, {
+      method: "POST",
+      body: new FormData(form),
+      headers: { Accept: "application/json" },
+    })
+      .then((response) => {
+        if (response.ok) {
+          button.textContent = "✓ Sent!";
+          button.style.background = "#4CAF50";
 
-      setTimeout(() => {
-        alert("Thank you for your message! We will get back to you soon.");
-        this.reset();
+          setTimeout(() => {
+            alert("Thank you for your message! We will get back to you soon.");
+            form.reset();
+            button.textContent = originalText;
+            button.style.background = "#AEB938";
+            button.style.opacity = "1";
+          }, 1000);
+        } else {
+          return response.json().then((data) => {
+            throw new Error(data.error || "Form submission failed.");
+          });
+        }
+      })
+      .catch((error) => {
+        alert("Oops! Something went wrong: " + error.message);
         button.textContent = originalText;
-        button.style.background = "#AEB938";
         button.style.opacity = "1";
-      }, 1000);
-    }, 1500);
+      });
   });
 
 // Cursor effect (desktop only)
