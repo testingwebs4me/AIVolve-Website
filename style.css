@@ -346,24 +346,47 @@ nav.scrolled {
     fade-in-out 5s infinite;
 }
 
+.shape3 {
+  width: 0;
+  height: 0;
+  border-left: 50px solid transparent;
+  border-right: 50px solid transparent;
+  border-bottom: 86px solid #aeb938;
+  top: 15%;
+  left: 20%;
+  animation: float-shape 15s infinite ease-in-out, fade-in-out 4s infinite;
+}
+
+.shape4 {
+  width: 0;
+  height: 0;
+  border-left: 75px solid transparent;
+  border-right: 75px solid transparent;
+  border-bottom: 130px solid #0a5b5d;
+  top: 60%;
+  right: 20%;
+  animation: float-shape 20s infinite ease-in-out reverse,
+    fade-in-out 5s infinite;
+}
+
 /* About section small circles */
 .about-shape1 {
   width: 50px;
   height: 50px;
   background: #aeb938;
   border-radius: 50%;
-  top: 15%;
-  left: 15%;
+  top: 25%;
+  left: 25%;
   animation: float-shape 12s infinite ease-in-out, fade-in-out 6s infinite;
 }
 
 .about-shape2 {
   width: 60px;
   height: 60px;
-  background: #0a5b5d;
+  background: #30bfc1;
   border-radius: 50%;
-  top: 70%;
-  right: 15%;
+  top: 20%;
+  right: 20%;
   animation: float-shape 18s infinite ease-in-out reverse,
     fade-in-out 8s infinite;
 }
@@ -374,18 +397,18 @@ nav.scrolled {
   height: 65px;
   background: #aeb938;
   transform: rotate(45deg);
-  top: 25%;
-  left: 10%;
+  top: 15%;
+  right: 10%;
   animation: float-shape 10s infinite ease-in-out, fade-in-out 5s infinite;
 }
 
 .services-shape2 {
   width: 45px;
   height: 45px;
-  background: #0a5b5d;
+  background: #13a7aa;
   transform: rotate(45deg);
-  top: 80%;
-  right: 10%;
+  top: 85%;
+  left: 10%;
   animation: float-shape 14s infinite ease-in-out reverse,
     fade-in-out 7s infinite;
 }
