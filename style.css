@@ -37,7 +37,7 @@ body.rtl {
 
 body.rtl * {
   font-family: "Cairo", "Arial", sans-serif;
-  font-size: calc(1em + 1px);
+  /* font-size: calc(1em + 1px); */
   font-weight: 500;
 }
 
