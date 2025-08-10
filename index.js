@@ -67,6 +67,25 @@ function toggleMenu() {
 }
 
 // Language toggle with animation
+// function toggleLanguage() {
+//   const body = document.body;
+//   const langBtn = document.querySelector(".lang-switch");
+
+//   body.style.transition = "opacity 0.3s";
+//   body.style.opacity = "0.5";
+
+//   setTimeout(() => {
+//     if (body.classList.contains("rtl")) {
+//       body.classList.remove("rtl");
+//       langBtn.textContent = "AR";
+//     } else {
+//       body.classList.add("rtl");
+//       langBtn.textContent = "EN";
+//     }
+//     body.style.opacity = "1";
+//   }, 300);
+// }
+
 function toggleLanguage() {
   const body = document.body;
   const langBtn = document.querySelector(".lang-switch");
@@ -75,13 +94,36 @@ function toggleLanguage() {
   body.style.opacity = "0.5";
 
   setTimeout(() => {
-    if (body.classList.contains("rtl")) {
-      body.classList.remove("rtl");
-      langBtn.textContent = "AR";
-    } else {
-      body.classList.add("rtl");
-      langBtn.textContent = "EN";
-    }
+    const isRTL = body.classList.toggle("rtl");
+    langBtn.textContent = isRTL ? "EN" : "AR";
+
+    // Update all elements with data-lang attributes
+    document.querySelectorAll("[data-en]").forEach((el) => {
+      if (isRTL) {
+        // Switch to Arabic
+        if (el.placeholder !== undefined)
+          el.placeholder = el.getAttribute("data-ar");
+        if (
+          el.textContent !== undefined &&
+          el.tagName !== "INPUT" &&
+          el.tagName !== "TEXTAREA"
+        ) {
+          el.textContent = el.getAttribute("data-ar");
+        }
+      } else {
+        // Switch to English
+        if (el.placeholder !== undefined)
+          el.placeholder = el.getAttribute("data-en");
+        if (
+          el.textContent !== undefined &&
+          el.tagName !== "INPUT" &&
+          el.tagName !== "TEXTAREA"
+        ) {
+          el.textContent = el.getAttribute("data-en");
+        }
+      }
+    });
+
     body.style.opacity = "1";
   }, 300);
 }

@@ -86,9 +86,9 @@
               <span data-lang="ar">ابدأ الآن</span>
             </a>
           </li>
-          <!-- <li>
+          <li>
             <button class="lang-switch" onclick="toggleLanguage()">AR</button>
-          </li> -->
+          </li>
         </ul>
 
         <div class="menu-toggle" id="menuToggle" onclick="toggleMenu()">
@@ -609,16 +609,27 @@
             action="https://formspree.io/f/xanbanlj"
             method="POST"
           >
-            <h3>Send us a message</h3>
+            <h3 data-en="Send us a message" data-ar="أرسل لنا رسالة">
+              Send us a message
+            </h3>
 
             <div class="form-group">
               <!-- Name -->
-              <input type="text" name="name" placeholder="Your Name" required />
+              <input
+                type="text"
+                name="name"
+                data-en="Your Name"
+                data-ar="اسمك الكامل"
+                placeholder="Your Name"
+                required
+              />
 
               <!-- Email -->
               <input
                 type="email"
                 name="email"
+                data-en="Your Email"
+                data-ar="بريدك الإلكتروني"
                 placeholder="Your Email"
                 required
               />
@@ -628,6 +639,8 @@
             <input
               type="text"
               name="company"
+              data-en="Company"
+              data-ar="الشركة"
               placeholder="Company"
               style="width: 100%; margin-bottom: 15px"
               required
@@ -637,6 +650,8 @@
             <input
               type="text"
               name="subject"
+              data-en="Subject"
+              data-ar="الموضوع"
               placeholder="Subject"
               style="width: 100%; margin-bottom: 15px"
               required
@@ -645,12 +660,21 @@
             <!-- Message -->
             <textarea
               name="message"
+              data-en="Your Message"
+              data-ar="رسالتك"
               placeholder="Your Message"
               required
             ></textarea>
 
             <!-- Submit -->
-            <button type="submit" class="btn btn-primary">Send Message</button>
+            <button
+              type="submit"
+              class="btn btn-primary"
+              data-en="Send Message"
+              data-ar="إرسال الرسالة"
+            >
+              Send Message
+            </button>
           </form>
         </div>
       </div>

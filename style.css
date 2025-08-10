@@ -1242,6 +1242,20 @@ nav.scrolled {
   box-shadow: 0 10px 30px rgba(174, 185, 56, 0.4);
 }
 
+/* Align fields right when RTL is active */
+body.rtl input,
+body.rtl textarea {
+  direction: rtl;
+  text-align: right;
+}
+
+/* Ensure LTR stays normal */
+body:not(.rtl) input,
+body:not(.rtl) textarea {
+  direction: ltr;
+  text-align: left;
+}
+
 /* Footer */
 footer {
   background: #0a5b5d;
