@@ -280,6 +280,18 @@ nav.scrolled {
   top: 10px;
 }
 
+#navbar,
+#navbar * {
+  direction: ltr !important;
+  text-align: left !important;
+}
+
+#navbar [data-lang="ar"] {
+  direction: rtl;
+  text-align: right;
+  display: inline-block;
+}
+
 /* Hero Section */
 .hero {
   min-height: 100vh;
@@ -794,6 +806,8 @@ nav.scrolled {
   opacity: 0;
   animation: slide-in-left 0.5s ease forwards;
   animation-delay: calc(var(--index) * 0.1s);
+  display: flex;
+  align-items: center;
 }
 
 @keyframes slide-in-left {
@@ -821,8 +835,22 @@ nav.scrolled {
   content: "➤";
   position: absolute;
   left: 0;
+  top: 50%;
+  transform: translateY(-50%);
   color: #aeb938;
   font-weight: bold;
+}
+
+body.rtl .service-features li {
+  padding-left: 0;
+  padding-right: 25px;
+}
+
+body.rtl .service-features li::before {
+  left: auto;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%) scaleX(-1);
 }
 
 /* Why Choose Section */
@@ -1068,8 +1096,12 @@ nav.scrolled {
   margin-top: 40px;
 }
 
+.talent-feature > p {
+  color: black;
+}
+
 .talent-feature {
-  background: rgba(255, 255, 255, 0.1);
+  background: white;
   padding: 25px;
   border-radius: 10px;
   border: 1px solid rgba(174, 185, 56, 0.3);
@@ -1077,13 +1109,13 @@ nav.scrolled {
 }
 
 .talent-feature:hover {
-  background: rgba(174, 185, 56, 0.1);
+  background: rgb(251, 255, 202);
   transform: translateY(-5px);
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
 }
 
 .talent-feature h3 {
-  color: #aeb938;
+  color: #0a5b5d;
   margin-bottom: 10px;
   display: flex;
   align-items: center;
@@ -1093,9 +1125,9 @@ nav.scrolled {
 .talent-feature .number {
   background: #aeb938;
   color: #1a1a2e;
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
+  width: 35px;
+  height: 35px;
+  border-radius: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
